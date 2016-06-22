@@ -7,6 +7,7 @@ class TodosCreate extends Component {
     console.log(this.refs.createInput.value)
 
     const { createTask } = this.props
+    console.log(`this is from create ${createTask}`);
     createTask(this.refs.createInput.value)
     this.refs.createInput.value = ''
   }

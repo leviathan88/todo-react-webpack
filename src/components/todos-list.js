@@ -6,10 +6,10 @@ import TodosListItem from './todos-list-item'
 class TodosList extends Component {
 
   renderItems() {
-    const { todos } = this.props   
+    const { todos } = this.props
 
     return todos.map( (todo, index)=> {
-      return <TodosListItem key={index} {...todo} />
+      return <TodosListItem key={index} {...todo} {...this.props} />
     })
   }
 

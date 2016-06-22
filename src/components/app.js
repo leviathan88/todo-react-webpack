@@ -41,12 +41,16 @@ export default class App extends Component {
     })
   }
 
+  toggleTask(task) {
+    console.log(task)
+  }
+
   render() {
     return (
       <div className="container">
         <h1 className="jumbotron"> Todo app meets React, Bootstrap and Webpack </h1>
-        <TodosCreate  createTask={this.createTask.bind(this)} />
-        <TodosList  todos={this.state.todos} />
+        <TodosCreate  createTask={ this.createTask.bind(this) } />
+        <TodosList  todos={ this.state.todos }  toggleTask={this.toggleTask.bind(this)} />
       </div>
     )
   }

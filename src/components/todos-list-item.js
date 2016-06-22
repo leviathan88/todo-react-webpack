@@ -23,10 +23,9 @@ class TodosListItem extends Component {
   }
 
   renderTaskSection() {
-    const { task, isCompleted } = this.props
-    const style = isCompleted ? 'completed' : 'notCompleted'
-
-    return <td className={style} > { task }  </td>
+    const { task, isCompleted, toggleTask } = this.props
+    const style = isCompleted ? 'completed' : 'notCompleted'    
+    return <td className={ style }  onClick={this.props.toggleTask.bind(this, task)} > { task }  </td>
   }
 
   renderActionsSection() {
@@ -35,13 +34,13 @@ class TodosListItem extends Component {
     if(isEditing) return (
       <td>
         <button className="btn btn-primary">Save</button>
-        <button className="btn btn-warning" onClick={this.cancelEditItem.bind(this)}>Cancel</button>
+        <button className="btn btn-warning" onClick={ this.cancelEditItem.bind(this)  } > Cancel  </button>
       </td>
     )
 
     return (
       <td>
-        <button className="btn btn-info" onClick={this.editItem.bind(this)}>Edit</button>
+        <button className="btn btn-info" onClick={  this.editItem.bind(this)  } >  Edit  </button>
         <button className="btn btn-danger" >Delete</button>
       </td>
     )
