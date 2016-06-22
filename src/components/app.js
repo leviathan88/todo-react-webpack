@@ -1,4 +1,6 @@
-import React, { Component } from 'react';
+import React, { Component } from 'react'
+
+import TodosList from './todos-list'
 
 const todos = [
   {
@@ -16,9 +18,21 @@ const todos = [
 ]
 
 export default class App extends Component {
+
+  constructor() {
+    super()
+
+    this.state = {
+      todos: todos
+    }
+  }
+
   render() {
     return (
-      <div>Welcome to where time stands still</div>
+      <div>
+        <h1> Welcome to where time stands still </h1>
+        <TodosList todos={this.state.todos}/>
+      </div>
     )
   }
 }
