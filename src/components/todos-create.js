@@ -15,7 +15,7 @@ class TodosCreate extends Component {
     return (
       <form onSubmit={this.handleCreate.bind(this)}>
         <input type="text" placeholder="what do i need to do" ref="createInput"/>
-        <button>Create</button>
+        <button className="btn btn-primary">Create</button>
       </form>
     )
   }
