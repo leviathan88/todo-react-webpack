@@ -22,20 +22,27 @@ class TodosListItem extends Component {
     })
   }
 
+  renderTaskSection() {
+    const { task, isCompleted } = this.props
+    const style = isCompleted ? 'completed' : 'notCompleted'
+
+    return <td className={style} > { task }  </td>
+  }
+
   renderActionsSection() {
     const { isEditing } = this.state
 
     if(isEditing) return (
       <td>
-        <button>Save</button>
-        <button onClick={this.cancelEditItem.bind(this)}>Cancel</button>
+        <button className="btn btn-primary">Save</button>
+        <button className="btn btn-warning" onClick={this.cancelEditItem.bind(this)}>Cancel</button>
       </td>
     )
 
     return (
       <td>
-        <button onClick={this.editItem.bind(this)}>Edit</button>
-        <button>Delete</button>
+        <button className="btn btn-info" onClick={this.editItem.bind(this)}>Edit</button>
+        <button className="btn btn-danger" >Delete</button>
       </td>
     )
   }
@@ -43,8 +50,8 @@ class TodosListItem extends Component {
   render() {
     return (
       <tr>
-        <td>{ this.props.task }</td>
-        {this.renderActionsSection()}
+        { this.renderTaskSection() }
+        { this.renderActionsSection() }
       </tr>
     )
   }
