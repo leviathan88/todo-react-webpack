@@ -1,10 +1,20 @@
 import React, { Component } from 'react'
 
 class TodosCreate extends Component {
+
+  handleCreate(event) {
+    event.preventDefault()
+    console.log(this.refs.createInput.value)
+
+    const { createTask } = this.props
+    createTask(this.refs.createInput.value)
+    this.refs.createInput.value = ''
+  }
+
   render() {
     return (
-      <form action="">
-        <input type="text" placeholder="what do i need to do" />
+      <form onSubmit={this.handleCreate.bind(this)}>
+        <input type="text" placeholder="what do i need to do" ref="createInput"/>
         <button>Create</button>
       </form>
     )

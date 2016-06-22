@@ -28,12 +28,22 @@ export default class App extends Component {
     }
   }
 
+  createTask(task) {
+    this.state.todos.push({
+      task: task,
+      isCompleted: false
+    })
+    this.setState({
+      todos: this.state.todos
+    })
+  }
+
   render() {
     return (
       <div>
         <h1> Welcome to where time stands still </h1>
-        <TodosCreate />
-        <TodosList todos={this.state.todos}/>
+        <TodosCreate  createTask={this.createTask.bind(this)} />
+        <TodosList  todos={this.state.todos} />
       </div>
     )
   }
