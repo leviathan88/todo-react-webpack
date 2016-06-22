@@ -1,3 +1,6 @@
+require('styles/style.scss')
+require('bootstrap/dist/css/bootstrap.css')
+
 import React, { Component } from 'react'
 
 import TodosCreate from './todos-create'
