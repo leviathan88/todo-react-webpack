@@ -1,14 +1,15 @@
 import React, { Component } from 'react'
 
 import TodosListHeader from './todos-list-header'
+import TodosListItem from './todos-list-item'
 
 class TodosList extends Component {
 
   renderItems() {
-    const { todos } = this.props
+    const { todos } = this.props   
 
     return todos.map( (todo, index)=> {
-      <TodosListItem key={index} {...todo} />
+      return <TodosListItem key={index} {...todo} />
     })
   }
 
@@ -16,6 +17,9 @@ class TodosList extends Component {
     return (
       <table>
         <TodosListHeader />
+        <tbody>
+          { this.renderItems() }
+        </tbody>
       </table>
     )
   }
