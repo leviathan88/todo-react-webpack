@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 
+import TodosCreate from './todos-create'
 import TodosList from './todos-list'
 
 const todos = [
@@ -31,6 +32,7 @@ export default class App extends Component {
     return (
       <div>
         <h1> Welcome to where time stands still </h1>
+        <TodosCreate />
         <TodosList todos={this.state.todos}/>
       </div>
     )
