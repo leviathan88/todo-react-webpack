@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "node server"
+    "start": "node server",
+    "build:prod": "webpack -p --progress"
   },
   "author": "elvis",
   "license": "MIT",
@@ -21,6 +22,7 @@
     "bootstrap": "^3.3.6",
     "css-loader": "^0.23.1",
     "file-loader": "^0.9.0",
+    "html-webpack-plugin": "^2.21.0",
     "node-sass": "^3.8.0",
     "react-hot-loader": "^1.3.0",
     "sass-loader": "^3.2.1",
