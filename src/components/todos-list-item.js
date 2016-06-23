@@ -55,19 +55,19 @@ class TodosListItem extends Component {
 
   renderActionsSection() {
     const { isEditing } = this.state
-    const { deleteTask } = this.props
+    const { deleteTask, task } = this.props
 
     if(isEditing) return (
       <td>
-        <button className="btn btn-primary" onClick={ this.saveEditItem.bind(this)  } > Save  </button>
-        <button className="btn btn-warning" onClick={ this.cancelEditItem.bind(this)  } > Cancel  </button>
+        <button className="btn btn-primary" onClick={ this.saveEditItem.bind(this) } > Save  </button>
+        <button className="btn btn-warning" onClick={ this.cancelEditItem.bind(this) } > Cancel  </button>
       </td>
     )
 
     return (
       <td>
         <button className="btn btn-info" onClick={ this.editItem.bind(this) } >  Edit  </button>
-        <button className="btn btn-danger" onClick={ deleteTask.bind(this, this.props.task) } > Delete  </button>
+        <button className="btn btn-danger" onClick={ deleteTask.bind(this, task) } > Delete  </button>
       </td>
     )
   }
