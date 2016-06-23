@@ -69,12 +69,16 @@ export default class App extends Component {
     })
   }
 
+  alreadyExists(wantedTask) {
+    return this.state.todos.find(todo=>todo.task===wantedTask)
+  }
+
 
   render() {
     return (
       <div className="container">
         <h1 className="jumbotron"> Todo app meets React, Bootstrap and Webpack </h1>
-        <TodosCreate  createTask={ this.createTask.bind(this) } />
+        <TodosCreate  createTask={ this.createTask.bind(this) } alreadyExists={ this.alreadyExists.bind(this) } />
         <TodosList  todos={ this.state.todos }
           toggleTask={ this.toggleTask.bind(this) }
           saveTask={ this.saveTask.bind(this) }
