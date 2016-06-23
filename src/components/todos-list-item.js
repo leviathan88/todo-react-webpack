@@ -55,6 +55,7 @@ class TodosListItem extends Component {
 
   renderActionsSection() {
     const { isEditing } = this.state
+    const { deleteTask } = this.props
 
     if(isEditing) return (
       <td>
@@ -66,7 +67,7 @@ class TodosListItem extends Component {
     return (
       <td>
         <button className="btn btn-info" onClick={ this.editItem.bind(this) } >  Edit  </button>
-        <button className="btn btn-danger" onClick={ this.deleteItem.bind(this) } > Delete  </button>
+        <button className="btn btn-danger" onClick={ deleteTask.bind(this, this.props.task) } > Delete  </button>
       </td>
     )
   }

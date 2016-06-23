@@ -19,6 +19,10 @@ const todos = [
   {
     task: 'buy yourself more money',
     isCompleted: false
+  },
+  {
+    task: "find fahrudin",
+    isCompleted: false
   }
 ]
 
@@ -59,7 +63,10 @@ export default class App extends Component {
   }
 
   deleteTask(task) {
-    _.delete(this.state.todos, task)
+    const filtered = _.delete(this.state.todos, task)
+    this.setState({
+      todos: filtered
+    })
   }
 
 
