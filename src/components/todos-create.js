@@ -45,9 +45,12 @@ class TodosCreate extends Component {
 
   render() {
     return (
-      <form onSubmit={this.handleCreate.bind(this)}>
-        <input type="text" placeholder="what do i need to do" ref="createInput"/>
-        <button className="btn btn-primary">Create</button>
+      <form  onSubmit={this.handleCreate.bind(this)}>
+        <div className="text-center lead">Create new todos</div>
+        <div className="form-group">
+          <input className="form-control" type="text" placeholder="what do i need to do" ref="createInput"/>
+        </div>
+        <span><button className="btn btn-primary pull-right">Create</button></span>
         {this.renderError()}
       </form>
     )
