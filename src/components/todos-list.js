@@ -7,6 +7,8 @@ class TodosList extends Component {
 
   renderItems() {
     const { todos } = this.props
+    /*let methods = this.props.map()
+    console.log(methods);*/
 
     return todos.map( (todo, index)=> {
       return <TodosListItem key={index} {...todo} {...this.props} />

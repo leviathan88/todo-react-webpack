@@ -24,8 +24,9 @@ class TodosListItem extends Component {
 
   renderTaskSection() {
     const { task, isCompleted, toggleTask } = this.props
-    const style = isCompleted ? 'completed' : 'notCompleted'    
-    return <td className={ style }  onClick={this.props.toggleTask.bind(this, task)} > { task }  </td>
+    const style = isCompleted ? 'completed' : 'notCompleted'
+
+    return <td className={ style }  onClick={toggleTask.bind(this, task)} > { task }  </td>
   }
 
   renderActionsSection() {
