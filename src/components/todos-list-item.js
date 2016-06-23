@@ -22,6 +22,19 @@ class TodosListItem extends Component {
     })
   }
 
+  saveEditItem(event) {
+    event.preventDefault()
+
+    const { saveTask } = this.props
+    const oldTask = this.props.task
+    const newTask = this.refs.editInput.value
+
+    saveTask(oldTask, newTask)
+    this.setState({
+      isEditing: false
+    })
+  }
+
   renderTaskSection() {
     const { task, isCompleted, toggleTask } = this.props
     const { isEditing } = this.state
@@ -35,25 +48,10 @@ class TodosListItem extends Component {
           </form>
         </td>
       )
-
     }
-
     return <td className={ style }  onClick={toggleTask.bind(this, task)} > { task }  </td>
   }
 
-  saveEditItem(event) {
-    event.preventDefault()
-
-    const { saveTask } = this.props
-
-    const oldTask = this.props.task
-    const newTask = this.refs.editInput.value
-
-    saveTask(oldTask, newTask)
-    this.setState({
-      isEditing: false
-    })
-  }
 
   renderActionsSection() {
     const { isEditing } = this.state
@@ -67,8 +65,8 @@ class TodosListItem extends Component {
 
     return (
       <td>
-        <button className="btn btn-info" onClick={  this.editItem.bind(this)  } >  Edit  </button>
-        <button className="btn btn-danger" >Delete</button>
+        <button className="btn btn-info" onClick={ this.editItem.bind(this) } >  Edit  </button>
+        <button className="btn btn-danger" onClick={ this.deleteItem.bind(this) } > Delete  </button>
       </td>
     )
   }

@@ -5,6 +5,7 @@ import React, { Component } from 'react'
 
 import TodosCreate from './todos-create'
 import TodosList from './todos-list'
+import _ from './helpers'
 
 const todos = [
   {
@@ -57,13 +58,20 @@ export default class App extends Component {
     })
   }
 
+  deleteTask(task) {
+    _.delete(this.state.todos, task)
+  }
+
+
   render() {
     return (
       <div className="container">
         <h1 className="jumbotron"> Todo app meets React, Bootstrap and Webpack </h1>
         <TodosCreate  createTask={ this.createTask.bind(this) } />
         <TodosList  todos={ this.state.todos }
-          toggleTask={this.toggleTask.bind(this)} saveTask={this.saveTask.bind(this)} />
+          toggleTask={ this.toggleTask.bind(this) }
+          saveTask={ this.saveTask.bind(this) }
+          deleteTask={ this.deleteTask.bind(this) } />
       </div>
     )
   }
