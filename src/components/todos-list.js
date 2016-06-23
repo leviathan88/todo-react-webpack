@@ -2,13 +2,13 @@ import React, { Component } from 'react'
 
 import TodosListHeader from './todos-list-header'
 import TodosListItem from './todos-list-item'
-import omit from './helpers'
+import _ from './helpers'
 
 class TodosList extends Component {
 
   renderItems() {
     const { todos } = this.props
-    const props = omit(this.props, 'todos')    
+    const props = _.omit(this.props, 'todos')
 
     return todos.map( (todo, index)=> {
       return <TodosListItem key={index} {...todo} {...props} />
