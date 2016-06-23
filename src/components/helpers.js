@@ -9,10 +9,8 @@ class Helpers {
     return filteredProps
   }
 
-  static delete(list, item) {
-    const filteredList = {}
-    console.log(list)
-    console.log(item)
+  static delete(todos, taskToDelete) {
+    return todos.filter(todo=>todo.task!==taskToDelete)
   }
 
 
