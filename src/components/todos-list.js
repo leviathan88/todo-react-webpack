@@ -2,16 +2,16 @@ import React, { Component } from 'react'
 
 import TodosListHeader from './todos-list-header'
 import TodosListItem from './todos-list-item'
+import omit from './helpers'
 
 class TodosList extends Component {
 
   renderItems() {
     const { todos } = this.props
-    /*let methods = this.props.map()
-    console.log(methods);*/
+    const props = omit(this.props, 'todos')    
 
     return todos.map( (todo, index)=> {
-      return <TodosListItem key={index} {...todo} {...this.props} />
+      return <TodosListItem key={index} {...todo} {...props} />
     })
   }
 
