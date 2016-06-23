@@ -5,7 +5,9 @@
   "main": "index.js",
   "scripts": {
     "start": "node server",
-    "build:prod": "webpack -p --progress"
+    "build:prod": "webpack -p --progress",
+    "build": "webpack --progress",
+    "serve": "webpack-dev-server --inline --progress"
   },
   "author": "elvis",
   "license": "MIT",
